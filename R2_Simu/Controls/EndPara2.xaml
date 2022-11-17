@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="R2_Simu.Controls.EndPara2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:local="clr-namespace:R2_Simu.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ScrollViewer.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.NumericUpDown.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <GroupBox Margin="6 2 6 2" Header="终端位置" FontSize="16"  materialDesign:ShadowAssist.ShadowDepth="Depth2" Style="{StaticResource MaterialDesignGroupBox }">
+            <Grid Margin="2">
+                <Grid x:Name="XUIWeldAreas" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Px" Margin="2,2,2,0"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="1">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="px" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndP[0],StringFormat={}{0:F2}}" HorizontalAlignment="Center" Cursor="Arrow"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Py"  Margin="2,2,2,0" Grid.Column="2"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="3">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="py" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndP[1],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Pz"  Margin="2,2,2,0"  Grid.Column="4"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="5">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="pz" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndP[2],StringFormat={}{0:F2}}" HorizontalAlignment="Center" Cursor="Arrow"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Nx"   Margin="2,10,2,0" Grid.Row="1" Grid.Column="0"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="1" Grid.Row="1">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="nx" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndN[0],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Ny" Margin="2,10,2,0"   Grid.Column="2" Grid.Row="1"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="3" Grid.Row="1">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="ny" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndN[1],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Nz" Margin="2,10,2,0"   Grid.Column="4" Grid.Row="1"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="5" Grid.Row="1">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="nz" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndN[2],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Ox"   Margin="2,10,2,0" Grid.Row="2" Grid.Column="0"/>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="1" Grid.Row="2">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="ox" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndO[0],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Oy" Margin="2,10,2,0"   Grid.Column="2" Grid.Row="2"/>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="3" Grid.Row="2">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="oy" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndO[1],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Oz" Margin="2,10,2,0"   Grid.Column="4" Grid.Row="2"/>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="5" Grid.Row="2">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="oz" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndO[2],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Ax"   Margin="2,10,2,0" Grid.Row="3" Grid.Column="0"/>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="1" Grid.Row="3">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="ax" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndA[0],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Ay" Margin="2,10,2,0"   Grid.Column="2" Grid.Row="3"/>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="3" Grid.Row="3">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="ay" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndA[1],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Az" Margin="2,10,2,0"   Grid.Column="4" Grid.Row="3"/>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="5" Grid.Row="3">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="az" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding EndA[2],StringFormat={}{0:F2}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </Grid>
+            </Grid>
+    </GroupBox>
+</UserControl>

@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="R2_Simu.Home"
+             xmlns:h="http://helix-toolkit.org/wpf"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:local="clr-namespace:R2_Simu"
+             xmlns:Control="clr-namespace:R2_Simu.Controls"
+             xmlns:Converters="clr-namespace:R2_Simu.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Converters:IntToBoolConverter x:Key="IntToBoolConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <h:HelixViewport3D x:Name="viewPort3d" ModelUpDirection="0,0,1" ShowCoordinateSystem="True" ShowCameraInfo="False" ViewCubeVerticalPosition="Bottom" CoordinateSystemLabelForeground="Blue" CoordinateSystemVerticalPosition="Center" CoordinateSystemHorizontalPosition="Right" CoordinateSystemHeight="150" CoordinateSystemWidth="150" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Unspecified" BorderBrush="Black" BorderThickness="2"  IsManipulationEnabled="True" ChangeFieldOfViewCursor="ScrollNS" PanCursor="Hand" RotateCursor="SizeAll" ZoomCursor="SizeNS" ZoomRectangleCursor="ScrollSE">
+                <h:HelixViewport3D.Camera>
+                    <PerspectiveCamera Position="142, 176, 202"  LookDirection="-142, -176, -202" FieldOfView="45" UpDirection="0,0,1"/>
+                </h:HelixViewport3D.Camera>
+                <h:DefaultLights/>
+
+                <h:PipeVisual3D x:Name="v0" Diameter="10"   Point2="0,0,30" Point1="0,0,0" Fill="Purple"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v1" Diameter="5"   Point2="{Binding J12}" Point1="{Binding J11}" Fill="Purple"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v12" Diameter="6"   Point2="{Binding J122}" Point1="{Binding J121}" Fill="Purple"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v22" Diameter="6"   Point2="{Binding J123}" Point1="{Binding J121}" Fill="Blue"></h:PipeVisual3D>
+                <h:PipeVisual3D x:Name="v2" Diameter="5"   Point2="{Binding J22}" Point1="{Binding J21}" Fill="Blue"></h:PipeVisual3D>
+                <h:ArrowVisual3D x:Name="v" Point1="0,0,0" Point2="0,0,0" Diameter="1" Fill="Cyan"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="n1"  Point1="{Binding J12}" Point2="{Binding J1n}" Diameter="1" Fill="Red" Visible="{Binding ElementName=vA,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o1" Point1="{Binding J12}" Point2="{Binding J1o}" Diameter="1" Fill="Orange" Visible="{Binding ElementName=vA,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a1" Point1="{Binding J12}" Point2="{Binding J1a}" Diameter="1" Fill="Green" Visible="{Binding ElementName=vA,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="n2" Point1="{Binding J22}" Point2="{Binding J2n}" Diameter="1"  Fill="Red" Visible="{Binding ElementName=vB,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="o2" Point1="{Binding J22}" Point2="{Binding J2o}" Diameter="1" Fill="Orange" Visible="{Binding ElementName=vB,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:ArrowVisual3D x:Name="a2" Point1="{Binding J22}" Point2="{Binding J2a}" Diameter="1" Fill="Green" Visible="{Binding ElementName=vB,Path=IsChecked}"></h:ArrowVisual3D>
+                <h:RectangleVisual3D Normal="0,0,1" LengthDirection="0,1,0" Width="200" Length="200"  Fill="#330000FF"/>
+                <h:TubeVisual3D x:Name="lines" Diameter="0.8"  Fill="ForestGreen"></h:TubeVisual3D>
+                <h:TubeVisual3D x:Name="ellipse"   Diameter="0.8"  Fill="ForestGreen"></h:TubeVisual3D>
+                <h:SunLight Brightness="0.5" ></h:SunLight>
+            </h:HelixViewport3D>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <Control:JAngles x:Name="V4" OnJointValueChanged="Rot_OnRotValueChanged"></Control:JAngles>
+                <GroupBox Margin="6 2 6 6" Header="显示关节轴位姿" FontSize="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Style="{StaticResource MaterialDesignGroupBox }">
+                    <Grid Margin="2 8 2 8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <RadioButton Content="直线" IsChecked="True"  x:Name="jA" Grid.Column="0" HorizontalAlignment="Center"></RadioButton>
+                        <RadioButton Content="椭圆" IsChecked="{Binding Path=CSimu, Converter={StaticResource IntToBoolConverter}}" x:Name="jB" Grid.Column="1" HorizontalAlignment="Center"></RadioButton>
+                        <CheckBox Content="V1" IsChecked="True" x:Name="vA" Grid.Column="2" HorizontalAlignment="Center"></CheckBox>
+                        <CheckBox Content="V2" IsChecked="True" x:Name="vB" Grid.Column="3" HorizontalAlignment="Center"></CheckBox>
+                    </Grid>
+                </GroupBox>
+                <Control:JOutput x:Name="end"></Control:JOutput>
+                <Control:Inverse x:Name="iverse"></Control:Inverse>
+                <Control:Jacobi x:Name="jaco"></Control:Jacobi>
+                <Grid Margin="6 2 2 2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Simu" Grid.Column="0" Style="{StaticResource MaterialDesignFlatDarkBgButton}" VerticalContentAlignment="Top" Click="Simu_Click"  Content="Simu" Width="110" Cursor="Hand" ></Button>
+                    <Button x:Name="Jogging" Grid.Column="1" Style="{StaticResource MaterialDesignFlatDarkBgButton}" VerticalContentAlignment="Top" Command="{Binding JoggingRoboCommand}" Content="Jogging" Width="110" Cursor="Hand" ></Button>
+                    <Button x:Name="Zero" Grid.Column="2" Style="{StaticResource MaterialDesignFlatDarkBgButton}" VerticalContentAlignment="Top" Command="{Binding ResetRoboCommand}" Content="Zero" Width="110" Cursor="Hand" ></Button>
+                    <Button x:Name="D6030" Grid.Column="3" Style="{StaticResource MaterialDesignFlatDarkBgButton}" VerticalContentAlignment="Top" Command="{Binding D6030RoboCommand}" Content="D6030" Width="110" Cursor="Hand" ></Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="R2_Simu.Controls.JAngles"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:local="clr-namespace:R2_Simu.Controls"
+             xmlns:domain="clr-namespace:R2_Simu.Domain"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <GroupBox Margin="6 2 6 6" Header="机器人参数" FontSize="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Style="{StaticResource MaterialDesignGroupBox }">
+        <Grid Margin="2">
+            <Grid x:Name="XUIWeldAreas" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="7*"></ColumnDefinition>
+                    <ColumnDefinition Width="70"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock FontSize="14" Background="Purple" Foreground="White"  VerticalAlignment="center" Text="J1" Grid.Row="0" Grid.Column="0"></TextBlock>
+                <Slider Minimum="-360" Maximum="360" Width="320" Margin="2 8 2 8" VerticalAlignment="Center" Value="{Binding JointAngles[0]}" ValueChanged="V_ValueChanged" x:Name="j1" Grid.Row="0" Grid.Column="1"/>
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Row="0" Grid.Column="2">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="j1t" VerticalAlignment="center" Margin="2 4 0 0" Text="{Binding ElementName=j1,Path=Value,StringFormat={}{0:F4}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+
+                <TextBlock FontSize="14"  Background="Blue" Foreground="White"   VerticalAlignment="center" Text="J2" Grid.Row="1" Grid.Column="0"></TextBlock>
+                <Slider Minimum="-160" Maximum="0" Margin="2 8 2 8" VerticalAlignment="Center" x:Name="j2" Value="{Binding JointAngles[1]}" ValueChanged="V_ValueChanged"  Grid.Row="1" Grid.Column="1" />
+                <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Row="1" Grid.Column="2">
+                    <Grid>
+                        <TextBlock FontSize="14" x:Name="j2t" VerticalAlignment="center" Margin="2 4 0 0" Text="{Binding ElementName=j2,Path=Value,StringFormat={}{0:F4}}" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </GroupBox>
+</UserControl>

@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="R2_Simu.Controls.Vector3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:local="clr-namespace:R2_Simu.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ScrollViewer.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.NumericUpDown.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <GroupBox Margin="6 2 6 2" Header="向量C" FontSize="16"  materialDesign:ShadowAssist.ShadowDepth="Depth2" Style="{StaticResource MaterialDesignGroupBox }">
+        <materialDesign:Card
+  Background="Red"
+  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+  Padding="8">
+            <Grid Margin="2">
+                <Grid x:Name="XUIWeldAreas" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Vx:" Margin="2,2,2,0"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="1">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="px" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding VectorC[0],StringFormat={}{0:F4}}" HorizontalAlignment="Center" Cursor="Arrow"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Vy:"  Margin="2,2,2,0" Grid.Column="2"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="3">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="py" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding VectorC[1],StringFormat={}{0:F4}}" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock FontSize="14" VerticalAlignment="Bottom" Text="Vz:"  Margin="2,2,2,0"  Grid.Column="4"/>
+                    <Border BorderThickness="0 0 0 1" BorderBrush="{DynamicResource PrimaryHueDarkForegroundBrush}" Grid.Column="5">
+                        <Grid>
+                            <TextBlock FontSize="14" x:Name="pz" VerticalAlignment="Bottom" Margin="2 4 0 0" Text="{Binding VectorC[2],StringFormat={}{0:F4}}" HorizontalAlignment="Center" Cursor="Arrow"/>
+                        </Grid>
+                    </Border>                   
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+    </GroupBox>
+</UserControl>

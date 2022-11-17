@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="R2_Simu.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:materialDesign="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+        xmlns:local="clr-namespace:R2_Simu"
+        xmlns:Control="clr-namespace:R2_Simu.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1280">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.NumericUpDown.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <GroupBox Margin="6 6 6 6" Header="杆件长度" FontSize="16"  materialDesign:ShadowAssist.ShadowDepth="Depth2" Style="{StaticResource MaterialDesignGroupBox }">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <materialDesign:NumericUpDown x:Name="J1" materialDesign:HintAssist.Hint="J1" Margin="2,2,2,0"
+                Minimum="0" ButtonIconDock="LeftAndRight"
+                Maximum="1000"
+                Interval="5"
+                FontSize="14"
+                
+                Grid.Row="0"
+                Grid.Column="0"
+                Value="{Binding Source={x:Static local:Properties.Settings.Default}, Path=l1, Mode=TwoWay}"
+                HorizontalAlignment="Stretch"                                              
+                Height="52" Width="100"
+                Style="{StaticResource MaterialDesignOutlinedNumericUpDown}" Cursor="IBeam"
+                />
+                <materialDesign:NumericUpDown x:Name="J2" materialDesign:HintAssist.Hint="J2"  Margin="2,2,2,0"
+                Minimum="200"
+                Maximum="2000"
+                Interval="5"
+                FontSize="14"
+                
+                Value="{Binding Source={x:Static local:Properties.Settings.Default}, Path=l2, Mode=TwoWay}"
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                Height="52" Width="100"
+                Style="{StaticResource MaterialDesignOutlinedNumericUpDown}" Cursor="IBeam" ButtonIconDock="LeftAndRight"
+                />
+
+                <materialDesign:NumericUpDown x:Name="D1" materialDesign:HintAssist.Hint="D1"  Margin="2,2,2,0"
+                Minimum="50"
+                Maximum="1000"
+                Interval="5"
+                FontSize="14"
+                
+                Value="{Binding Source={x:Static local:Properties.Settings.Default}, Path=d1, Mode=TwoWay}"
+                Grid.Row="0"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                Height="52" Width="100"
+                Style="{StaticResource MaterialDesignOutlinedNumericUpDown}" Cursor="IBeam" ButtonIconDock="LeftAndRight"
+                />
+
+
+                <materialDesign:NumericUpDown x:Name="D2" materialDesign:HintAssist.Hint="D2" Margin="2,10,2,0"
+                Minimum="100" ButtonIconDock="LeftAndRight"
+                Maximum="2000"
+                Interval="5"
+                FontSize="14"
+                
+                Grid.Row="1"
+                Grid.Column="0"
+                Value="{Binding Source={x:Static local:Properties.Settings.Default}, Path=d2, Mode=TwoWay}"
+                HorizontalAlignment="Stretch"
+                Height="52" Width="100"
+                Style="{StaticResource MaterialDesignOutlinedNumericUpDown}"
+                />
+
+            </Grid>
+                </GroupBox>
+                <GroupBox Margin="6 6 6 6" Header="杆件重量及惯性矩" FontSize="16" Grid.Column="1"  materialDesign:ShadowAssist.ShadowDepth="Depth2" Style="{StaticResource MaterialDesignGroupBox }">
+
+                </GroupBox>
+                <Button Grid.Row="1" ToolTip="保存" Grid.ColumnSpan="2" HorizontalAlignment="Center" Command="{Binding SaveSettingCommand}"
+  Style="{StaticResource MaterialDesignRaisedDarkButton}"
+  Width="200" Height="50"
+  Content="保存" />
+            </Grid>
+</UserControl>
